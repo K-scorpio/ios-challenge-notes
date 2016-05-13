@@ -10,10 +10,23 @@ import Foundation
 
 class Entry: Equatable {
     
+    private let kBodyText = "bodyText"
+    
     var bodyText: String
+    
+    var dictionaryCopy: [String: AnyObject] {
+        return [kBodyText: bodyText]
+    }
     
     init(bodyText: String) {
         self.bodyText = bodyText
+    }
+    
+    init?(dictionary: [String: AnyObject]) {
+        guard let bodyTextDictionaries = dictionary[kBodyText] as? String else {
+            return nil
+        }
+        self.bodyText = bodyTextDictionaries
     }
 }
 

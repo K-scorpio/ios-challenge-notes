@@ -13,13 +13,38 @@ class EntryDetailViewController: UIViewController {
     @IBOutlet weak var bodyTextField: UITextView!
     
     @IBAction func saveButton(sender: AnyObject) {
+        if let entry = entry {
+            guard let bodyText = bodyTextField.text else {
+                return
+            }
+            entry.bodyText = bodyText
+            self.bodyTextField.resignFirstResponder()
+            EntryController.sharedInstance.saveToPersistentStore()
+        } else {
+            guard let bodyText = bodyTextField.text else {
+                return
+            }
+            let entry = Entry(bodyText: bodyText)
+            EntryController.sharedInstance.addEntry(entry)
+            self.entry = entry
+        }
+        
+        self.navigationController?.popToRootViewControllerAnimated(true)
+        
     }
-    
+
+    var entry: Entry?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        if let entry = entry {
+            updateEntryWith(entry)
+            
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,6 +52,12 @@ class EntryDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func updateEntryWith(entry: Entry) {
+        self.bodyTextField.text = entry.bodyText
+        
+        self.resignFirstResponder()
+        
+    }
 
     /*
     // MARK: - Navigation

@@ -7,3 +7,40 @@
 //
 
 import Foundation
+
+class EntryController {
+    
+    private let kEntry = "entry"
+    
+    static let sharedInstance = EntryController()
+    
+    var entriesArray = [Entry]()
+    
+    init() {
+        loadFromPersistentStore()
+    }
+        
+    func addEntry(entry: Entry) {
+        entriesArray.append(entry)
+        saveToPersistentStore()
+    }
+
+    func removeEntry(entry: Entry) {
+        if let index = entriesArray.indexOf(entry) {
+        entriesArray.removeAtIndex(index)
+        saveToPersistentStore()
+        }
+    
+    }
+    
+    func saveToPersistentStore() {
+        NSUserDefaults.standardUserDefaults().setObject(entriesArray.map{($0.dictionaryCopy)}, forKey: kEntry)
+    }
+    
+    func loadFromPersistentStore() {
+        guard let entryDictionary = NSUserDefaults.standardUserDefaults().objectForKey(kEntry) as? [[String: AnyObject]] else {
+            return
+        }
+        entriesArray = entryDictionary.flatMap({Entry(dictionary: $0)})
+    }
+}
