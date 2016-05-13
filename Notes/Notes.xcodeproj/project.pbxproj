@@ -11,6 +11,10 @@
 		1AFCF6C31CDC050E006D2F3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFCF6C11CDC050E006D2F3D /* Main.storyboard */; };
 		1AFCF6C51CDC050E006D2F3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AFCF6C41CDC050E006D2F3D /* Assets.xcassets */; };
 		1AFCF6C81CDC050E006D2F3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFCF6C61CDC050E006D2F3D /* LaunchScreen.storyboard */; };
+		E2E053911CE628F20066A83A /* EntryCellTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E053901CE628F20066A83A /* EntryCellTableViewController.swift */; };
+		E2E053961CE6298F0066A83A /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E053951CE6298F0066A83A /* Entry.swift */; };
+		E2E053981CE62A0A0066A83A /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E053971CE62A0A0066A83A /* EntryDetailViewController.swift */; };
+		E2E0539B1CE62B160066A83A /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E0539A1CE62B160066A83A /* EntryController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +24,10 @@
 		1AFCF6C41CDC050E006D2F3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1AFCF6C71CDC050E006D2F3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1AFCF6C91CDC050E006D2F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2E053901CE628F20066A83A /* EntryCellTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryCellTableViewController.swift; sourceTree = "<group>"; };
+		E2E053951CE6298F0066A83A /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		E2E053971CE62A0A0066A83A /* EntryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntryDetailViewController.swift; path = ../EntryDetailViewController.swift; sourceTree = "<group>"; };
+		E2E0539A1CE62B160066A83A /* EntryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,11 +62,39 @@
 			children = (
 				1AFCF6BD1CDC050E006D2F3D /* AppDelegate.swift */,
 				1AFCF6C11CDC050E006D2F3D /* Main.storyboard */,
+				E2E0539C1CE62B1D0066A83A /* Controllers */,
+				E2E053991CE62AAC0066A83A /* Model */,
+				E2E053941CE629620066A83A /* View Controllers */,
 				1AFCF6C41CDC050E006D2F3D /* Assets.xcassets */,
 				1AFCF6C61CDC050E006D2F3D /* LaunchScreen.storyboard */,
 				1AFCF6C91CDC050E006D2F3D /* Info.plist */,
 			);
 			path = Notes;
+			sourceTree = "<group>";
+		};
+		E2E053941CE629620066A83A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E2E053901CE628F20066A83A /* EntryCellTableViewController.swift */,
+				E2E053971CE62A0A0066A83A /* EntryDetailViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		E2E053991CE62AAC0066A83A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E2E053951CE6298F0066A83A /* Entry.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E2E0539C1CE62B1D0066A83A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E2E0539A1CE62B160066A83A /* EntryController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,7 +168,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2E053961CE6298F0066A83A /* Entry.swift in Sources */,
+				E2E053911CE628F20066A83A /* EntryCellTableViewController.swift in Sources */,
+				E2E0539B1CE62B160066A83A /* EntryController.swift in Sources */,
 				1AFCF6BE1CDC050E006D2F3D /* AppDelegate.swift in Sources */,
+				E2E053981CE62A0A0066A83A /* EntryDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +322,7 @@
 				1AFCF6CE1CDC050E006D2F3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
